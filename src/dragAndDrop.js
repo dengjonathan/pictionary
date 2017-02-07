@@ -1,8 +1,10 @@
 const Rx = require('rxjs');
 
-const mouseDowns = Rx.Observable.fromEvent(document, 'mousedown');
-const mouseMoves = Rx.Observable.fromEvent(document, 'mousemove');
-const mouseUps = Rx.Observable.fromEvent(document, 'mouseup');
+const $canvas = document.getElementById('canvas');
+
+const mouseDowns = Rx.Observable.fromEvent($canvas, 'mousedown');
+const mouseMoves = Rx.Observable.fromEvent($canvas, 'mousemove');
+const mouseUps = Rx.Observable.fromEvent($canvas, 'mouseup');
 
 // compose
 const mousePaths = mouseDowns 
