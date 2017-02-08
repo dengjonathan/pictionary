@@ -16,15 +16,17 @@ export default function draw() {
 
   let prevX, prevY;
   mousePaths.forEach(e => {
+    const x = e.x - $canvas.offsetLeft;
+    const y = e.y - $canvas.offsetTop;
     if (prevX) {
       ctx.beginPath();
       ctx.moveTo(prevX, prevY);
-      ctx.lineTo(e.x - $canvas.offsetLeft, e.y - $canvas.offsetTop);
+      ctx.lineTo(x, y);
       ctx.stroke();
       ctx.closePath();
     }
-    prevX = e.x - $canvas.offsetLeft;
-    prevY = e.y - $canvas.offsetTop;
+    prevX = x;
+    prevY = y;
   });
 
   mouseUps.forEach(e => {
