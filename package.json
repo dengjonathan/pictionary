@@ -6,8 +6,15 @@
     "react-scripts": "0.8.5"
   },
   "dependencies": {
+    "dotenv": "^4.0.0",
+    "fabric": "^1.7.3",
+    "koa": "^1.2.4",
+    "material-ui": "^0.17.0",
     "react": "^15.4.2",
-    "react-dom": "^15.4.2"
+    "react-dom": "^15.4.2",
+    "react-tap-event-plugin": "^2.0.1",
+    "rxjs": "^5.1.0",
+    "sendbird": "^3.0.22"
   },
   "scripts": {
     "start": "react-scripts start",
