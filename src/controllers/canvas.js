@@ -9,4 +9,10 @@ export default function draw() {
   canvas.freeDrawingBrush.color = "purple";
   canvas.freeDrawingBrush.width = 10;
   canvas.renderAll();
+
+  return {
+    save: canvas.toJSON,
+    clear: canvas.clear.bind(canvas),
+    load: jsonObj => canvas.loadFromJson(jsonObj)
+  };
 }

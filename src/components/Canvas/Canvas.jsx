@@ -8,31 +8,30 @@ class Canvas extends React.Component {
   constructor() {
     super();
     this.state = {
-      ctx: null
-    };
+      canvas: null
+    }
   }
 
   componentDidMount() {
-    draw();
+   this.setState({canvas: draw()});
   }
-  
+
   render() {
     return (
       <div>
         <canvas ref='draw' id='canvas' width={300} height={300}/>
         <button
-          onClick={this.state.ctx
-          ? () => {
-            this.state.ctx.save();
-            this.state.ctx.clearRect(0, 0, 300, 300);
-            this.state.ctx.restore();
-          }
-          : function () {}}>Clear</button>
+          onClick={this.state.canvas && this.state.canvas.clear}
+          >Clear</button>
           <button
-            onClick={this.state.ctx ?
-              () => this.state.ctx.restore()
-              : function(){}
-          }
+            onClick={this.state.canvas && function (){
+              console.log(this.state.canvas.save())
+            }}
+          >Save</button>
+           <button
+            onClick={this.state.stored && function (){
+              this.load(this.state.stored);
+            }}
           >Restore</button>
       </div>
     );
