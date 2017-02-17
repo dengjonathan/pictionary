@@ -2,14 +2,12 @@ import {fabric} from 'fabric';
 
 import {updatePicture} from './stateControllers';
 
-const BACKGROUND_COLOR = '#efefef';
-
 export default function draw() {
   const canvas = new fabric.Canvas(document.getElementById('canvas'), {
     isDrawingMode: true
   });
   canvas.isDrawingMode = 1;
-  canvas.backgroundColor = BACKGROUND_COLOR;canvas.freeDrawingBrush.color = 'purple';
+  canvas.freeDrawingBrush.color = 'purple';
   canvas.freeDrawingBrush.width = 10;
   canvas.renderAll();
 
@@ -31,7 +29,6 @@ export default function draw() {
     save: () => console.log(canvas.toJSON()),
     clear: () => {
       canvas.clear.call(canvas);
-      canvas.backgroundColor = BACKGROUND_COLOR;
     },
     load: jsonObj => canvas.loadFromJson(jsonObj)
   };
