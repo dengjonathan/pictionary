@@ -2,22 +2,37 @@ import {fabric} from 'fabric';
 
 import {updatePicture} from './stateControllers';
 
+const BACKGROUND_COLOR = '#efefef';
+
 export default function draw() {
   const canvas = new fabric.Canvas(document.getElementById('canvas'), {
     isDrawingMode: true
   });
   canvas.isDrawingMode = 1;
-  canvas.backgroundColor = '#efefef';
-  canvas.freeDrawingBrush.color = "purple";
+  canvas.backgroundColor = BACKGROUND_COLOR;canvas.freeDrawingBrush.color = 'purple';
   canvas.freeDrawingBrush.width = 10;
   canvas.renderAll();
+
+  const sizeCanvas = () => {
+    console.log('sizing canvas');
+    canvas.setWidth(window.innerWidth * 0.5);
+    canvas.setHeight(Math.min(canvas.width, window.innerHeight * 0.5));
+  } 
 
   // TODO: install listener that will trigger update to redux store on every draw
   canvas.on('mouse:up', () => updatePicture(canvas.toJSON));
 
+  window.addEventListener('resize', sizeCanvas);
+
+  sizeCanvas();
+
   return {
-    save: canvas.toJSON,
-    clear: canvas.clear.bind(canvas),
+    // TODO: don't really need this method since it automatically saves
+    save: () => console.log(canvas.toJSON()),
+    clear: () => {
+      canvas.clear.call(canvas);
+      canvas.backgroundColor = BACKGROUND_COLOR;
+    },
     load: jsonObj => canvas.loadFromJson(jsonObj)
   };
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import RaisedButton from 'material-ui/RaisedButton';
 
 import draw from '../../controllers/canvas';
 import './Canvas.css';
@@ -9,30 +10,26 @@ class Canvas extends React.Component {
     super();
     this.state = {
       canvas: null
-    }
+    };
   }
 
   componentDidMount() {
-   this.setState({canvas: draw()});
+    this.setState({canvas: draw()});
   }
 
   render() {
     return (
-      <div>
-        <canvas id='canvas' width='500' height='400'/>
-        <button
+      <div className='drawing'>
+        <canvas id='canvas' width={window.innerWidth * 0.75} height={window.innerHeight * 0.75}/>
+        <RaisedButton
           onClick={this.state.canvas && this.state.canvas.clear}
-          >Clear</button>
-          <button
-            onClick={this.state.canvas && function (){
-              console.log(this.state.canvas.save())
-            }}
-          >Save</button>
-           <button
-            onClick={this.state.stored && function (){
-              this.load(this.state.stored);
-            }}
-          >Restore</button>
+          label='Clear'/>
+        <RaisedButton
+          onClick={this.state.canvas && this.state.canvas.save}
+          label='Save'/>
+          <RaisedButton
+          onClick={this.state.canvas && this.state.canvas.save}
+          label='Chat'/>
       </div>
     );
   }
