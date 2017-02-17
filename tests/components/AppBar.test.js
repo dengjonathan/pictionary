@@ -6,7 +6,7 @@ const expect = require('chai').expect;
 const HeaderBar = require('../../src/components/AppBar/AppBar').default;
 const AppBar = require('material-ui/AppBar').default;
 
-describe('AppBar', () => {
+describe('AppBar Component', () => {
 
   let tree;
 
