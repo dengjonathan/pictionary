@@ -6,14 +6,21 @@ const expect = require('chai').expect;
 const HeaderBar = require('../../src/components/AppBar/AppBar').default;
 const AppBar = require('material-ui/AppBar').default;
 
-const shallowRenderer = TestUtils.createRenderer();
-
 describe('AppBar', () => {
-  const bar = shallowRenderer.render(React.createElement(HeaderBar));
+
+  let tree;
+
+  beforeEach(() => {
+    tree = sd.shallowRender(React.createElement(HeaderBar));
+  });
   
   it('should should be type AppBar', () => {
-    expect(bar.type).to.eql(AppBar);
+    expect(tree.type).to.eql(AppBar);
   });
 
-  
+  // FIXME: this isn't a super good test
+  it('should render the title of the app', () => {
+    expect(tree.props.title).to.equal('PikChat');
+  });
+
 });
