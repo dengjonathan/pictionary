@@ -5,7 +5,10 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "mocha": "^3.2.0",
-    "react-scripts": "0.8.5"
+    "react-addons": "^0.9.1-deprecated",
+    "react-addons-test-utils": "^15.4.2",
+    "react-scripts": "0.8.5",
+    "skin-deep": "^1.0.0-alpha2"
   },
   "dependencies": {
     "dotenv": "^4.0.0",
@@ -15,6 +18,7 @@
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-tap-event-plugin": "^2.0.1",
+    "redux": "^3.6.0",
     "rxjs": "^5.1.0",
     "sendbird": "^3.0.22"
   },

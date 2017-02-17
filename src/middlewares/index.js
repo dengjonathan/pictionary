@@ -1,8 +1,8 @@
-import {applyMiddlewares} from 'redux';
+import {applyMiddleware} from 'redux';
 
 import sendPicToServer from './sendPictureToServer';
 
-const middlewares = applyMiddlewares(
+const middlewares = applyMiddleware(
   sendPicToServer
 );
 

@@ -19,7 +19,7 @@ class Canvas extends React.Component {
   render() {
     return (
       <div>
-        <canvas id='canvas' width='40%' height='40%'/>
+        <canvas id='canvas' width='500' height='400'/>
         <button
           onClick={this.state.canvas && this.state.canvas.clear}
           >Clear</button>

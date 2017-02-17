@@ -1,9 +1,9 @@
 import {combineReducers} from 'redux';
 
-import picReducer from './picReducer';
+import picState from './picReducer';
 
-const rootReducer = combineReducers(
-  picReducer
-);
+const rootReducer = combineReducers({
+  picState
+});
 
 export default rootReducer;
