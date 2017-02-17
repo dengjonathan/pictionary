@@ -2,8 +2,9 @@ import store from './store';
 
 export const getState = key => {
   const state = store.getState();
+  
   if (key in state) {
-    return state.key;
+    return state[key];
   }
   return state;
 };
