@@ -12,13 +12,12 @@ export default function draw() {
   canvas.renderAll();
 
   const sizeCanvas = () => {
-    console.log('sizing canvas');
     canvas.setWidth(window.innerWidth * 0.5);
     canvas.setHeight(Math.min(canvas.width, window.innerHeight * 0.5));
   } 
 
   // TODO: install listener that will trigger update to redux store on every draw
-  canvas.on('mouse:up', () => updatePicture(canvas.toJSON));
+  canvas.on('mouse:up', () => updatePicture(canvas.toJSON()));
 
   window.addEventListener('resize', sizeCanvas);
 

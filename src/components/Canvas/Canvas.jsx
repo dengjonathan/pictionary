@@ -3,6 +3,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import Toolbar from 'material-ui/Toolbar';
 
 import draw from '../../controllers/canvas';
+import {sendPicture} from '../../controllers/stateControllers';
 import './Canvas.css';
 import '../../controllers/canvas.js';
 
@@ -30,8 +31,8 @@ class Canvas extends React.Component {
           onClick={this.state.canvas && this.state.canvas.save}
           label='Save'/>
           <RaisedButton
-          onClick={this.state.canvas && this.state.canvas.save}
-          label='Chat'/>
+          onClick={sendPicture}
+          label='Send'/>
           </Toolbar>
       </div>
     );
